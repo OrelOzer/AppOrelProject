@@ -12,6 +12,7 @@ namespace AppOrelProject
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        //comment to check gitHub
         Button btnLogin, btnRegister,BtnList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
