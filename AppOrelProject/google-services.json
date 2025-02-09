@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "418789459742",
+    "project_id": "apporelproject",
+    "storage_bucket": "apporelproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418789459742:android:0756dd65359e7c6e14ab0f",
+        "android_client_info": {
+          "package_name": "com.companyname.apporelproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCugo_fnpLa31w-GY60X2ekMyE6XOk_9Ew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
