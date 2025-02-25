@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="10px"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textSize="35px"
+        android:textColor="@android:color/holo_blue_bright"
+        android:padding="30px"
+        android:id="@+id/AppDateTextView"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PhoneNumber "
+        android:textSize="35px"
+         android:textColor="@android:color/holo_blue_bright"
+        android:padding="30px"
+        android:id="@+id/AppHourTextView"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PhoneNumber "
+        android:textSize="35px"
+         android:textColor="@android:color/holo_blue_bright"
+        android:padding="30px"
+        android:id="@+id/AppBarberIdTextView"/>
+
+   
+
+   
+</LinearLayout>

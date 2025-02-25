@@ -122,11 +122,12 @@ namespace AppOrelProject.Activities
                
                 id = fbd.GetNewDocumentId(General.FS_COLLECTIONAPP);
                 HashMap appMap = new HashMap();
-                //appMap.Put(General.DAY,appointment.Day);
+                appMap.Put(General.DAY,appointment.Day.ToString());
                appMap.Put(General.HOUR,appointment.Hour);
                 appMap.Put(General.KEY_USERNAME, UserName);
                 appMap.Put(General.KEY_PHONENUMBER, PhoneNumber);
                 appMap.Put(General.ID, id);
+                appMap.Put(General.BARBERID,appointment.BarberId);
                 DocumentReference userReference = fbd.firestore.Collection(General.FS_COLLECTIONAPP).Document(id);
                 await userReference.Set(appMap);
             }

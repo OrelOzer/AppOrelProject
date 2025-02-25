@@ -69,6 +69,7 @@
     <Compile Include="Activities\ProfileBarberActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\UpdateOptionActivity.cs" />
+    <Compile Include="Helpers\AppAdapter.cs" />
     <Compile Include="Helpers\BarberAdapter.cs" />
     <Compile Include="Helpers\CheckClass.cs" />
     <Compile Include="Helpers\FbData.cs" />
@@ -152,6 +153,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\AddApointmentlayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DeleteAppointmentlayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AppRowlayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

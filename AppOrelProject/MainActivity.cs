@@ -40,6 +40,7 @@ namespace AppOrelProject
 
         private void BtnList_Click(object sender, EventArgs e)
         {
+            //Intent intent = new Intent(this, typeof(DeleteApointmentActivity));
             Intent intent = new Intent(this, typeof(ListBarberActivity));
             StartActivity(intent);
 

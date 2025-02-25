@@ -23,7 +23,7 @@ namespace AppOrelProject.Models
        
         public string Phonenumber { get; set; }
         public System.DateTime Day { get; set; }
-        public int Hour { get; set; }
+        public double Hour { get; set; }
         public string BarberId { get; set; }
         public Appointment()
         {
@@ -33,7 +33,7 @@ namespace AppOrelProject.Models
             Phonenumber = string.Empty;
             BarberId = string.Empty;
         }
-        public Appointment( string id, string fullname,  string phonenumber,string bid,DateTime d,int hour)
+        public Appointment( string id, string fullname,  string phonenumber,string bid,DateTime d,double hour)
         {
           
             Id = id;
