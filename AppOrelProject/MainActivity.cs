@@ -19,7 +19,7 @@ namespace AppOrelProject
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.layout1);
             InitViews();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -36,7 +36,11 @@ namespace AppOrelProject
            btnRegister.Click += btnRegister_Click;
             BtnList=FindViewById<Button>(Resource.Id.BtnList);
             BtnList.Click += BtnList_Click;
+           
+
         }
+
+      
 
         private void BtnList_Click(object sender, EventArgs e)
         {
@@ -58,11 +62,7 @@ namespace AppOrelProject
             StartActivity(intent);
         }
 
-        //private void btnRegister_Click(object? sender, EventArgs e)
-        //{
-        //    Intent intent = new Intent(this, typeof(Register));
-        //    StartActivity(intent);
-        //}
+       
 
 
     }

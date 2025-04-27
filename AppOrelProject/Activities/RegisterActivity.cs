@@ -15,6 +15,7 @@ using AppOrelProject.Models;
 using Firebase.Firestore;
 using Java.Util;
 
+
 namespace AppOrelProject.Activities
 {
     [Activity(Label = "RegisterActivity")]
@@ -51,7 +52,17 @@ namespace AppOrelProject.Activities
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            SaveDocument();
+            bool check = CheckClass.ChackInputData(etRegFullName.Text, etRegPhoneNumber.Text);
+            if (check)
+            {
+                SaveDocument();
+            }
+            else
+            {
+                Toast.MakeText(this, "invalid name or phone number ", ToastLength.Short).Show();
+
+            }
+           
         }
 
         private async void SaveDocument()
@@ -90,6 +101,7 @@ namespace AppOrelProject.Activities
                 userMap.Put(General.KEY_USERNAME, UserName);
                 userMap.Put(General.KEY_PASSWORD, Password);
                 userMap.Put(General.KEY_PHONENUMBER, PhoneNumber);  
+                userMap.Put(General.KEY_ISBARBER,false);
                 userMap.Put(General.KEY_ID, fbd.auth.CurrentUser.Uid);
                 DocumentReference userReference = fbd.firestore.Collection(General.FS_COLLECTION).Document(fbd.auth.CurrentUser.Uid);
                 await userReference.Set(userMap);

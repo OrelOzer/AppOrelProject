@@ -22,6 +22,7 @@ namespace AppOrelProject.Helpers
         public const string KEY_PASSWORD = "Password";
         public const string KEY_PHONENUMBER = "Phonenumber";
         public const string KEY_URL = "ImageURL";
+        public const string KEY_ISBARBER = "IsBarber";
 
         public const string FS_COLLECTIONAPP = "AppointmentCollection";
         public const string ID = "Id";
@@ -29,5 +30,12 @@ namespace AppOrelProject.Helpers
         public const string DAY = "Day";
         public const string HOUR = "Hour";
         public const string BARBERID = "BarberId";
+
+        public const string ADMINMAIL = "bbb@gmail.com";
+        public const string ADMINPASSWORD = "123456";
+
+
+
+      
     }
 }

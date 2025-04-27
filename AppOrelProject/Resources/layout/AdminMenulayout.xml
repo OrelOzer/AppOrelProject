@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="600px"
+        android:layout_height="150px"
+        android:background="#00ADB5"
+        android:layout_marginTop="50px"
+        android:text="LAB"
+        android:shadowColor="@android:color/black"
+        android:textSize="64px"
+        android:textFontWeight="1500"
+        android:id="@+id/LAB"
+        android:textColor="#222831"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="600px"
+        android:layout_height="150px"
+        android:background="#00ADB5"
+        android:layout_marginTop="50px"
+        android:text="BarberList"
+        android:shadowColor="@android:color/black"
+        android:textSize="64px"
+        android:textFontWeight="1500"
+        android:id="@+id/BarberList"
+        android:textColor="#222831"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="600px"
+        android:layout_height="150px"
+        android:background="#00ADB5"
+        android:layout_marginTop="50px"
+        android:text="ClientList"
+        android:shadowColor="@android:color/black"
+        android:textSize="64px"
+        android:textFontWeight="1500"
+        android:id="@+id/ClientList"
+        android:textColor="#222831"/>
+
+</LinearLayout>

@@ -16,8 +16,8 @@ namespace AppOrelProject.Activities
     [Activity(Label = "ProfileBarberActivity")]
     public class ProfileBarberActivity : Activity,IOnSuccessListener,Firebase.Firestore.IEventListener
     {
-        EditText etProfileUserName, etProfilePassword, etProfileEmail, etProfileFullName, etProfilePhoneNumber;
-       // Button btnRegister;
+        EditText etProfileUserName,   etProfilePhoneNumber;
+        Button btnProfileGetApp;
         FbData fbd;
         User user;
        
@@ -43,13 +43,12 @@ namespace AppOrelProject.Activities
 
         private void InitViews()
         {
-            etProfileEmail = FindViewById<EditText>(Resource.Id.etProfileEmail);
-            etProfileFullName = FindViewById<EditText>(Resource.Id.etProfileFullName);
-            etProfilePassword = FindViewById<EditText>(Resource.Id.etProfilePassWord);
+           
             etProfileUserName = FindViewById<EditText>(Resource.Id.etProfileUserName);
             etProfilePhoneNumber = FindViewById<EditText>(Resource.Id.etProfilePhoneNumber);
-          
-            
+            btnProfileGetApp = FindViewById<Button>(Resource.Id.btnProfileGetApp);
+
+
         }
 
         private void InitObject()
@@ -70,7 +69,15 @@ namespace AppOrelProject.Activities
         {
             etProfileUserName.Text = user.UserName;
             etProfilePhoneNumber.Text = user.Phonenumber;
+            btnProfileGetApp.Click += BtnProfileGetApp_Click;
+            
 
+        }
+
+        private void BtnProfileGetApp_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(DeleteApointmentActivity));
+            StartActivity(intent);
         }
 
         public void OnEvent(Java.Lang.Object obj, FirebaseFirestoreException error)

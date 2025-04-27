@@ -35,7 +35,7 @@
         android:layout_height="150px"
         android:background="#00ADB5"
         android:layout_marginTop="50px"
-        android:text="Register"
+        android:text="AddApp"
         android:shadowColor="@android:color/black"
         android:textSize="64px"
         android:textFontWeight="1500"

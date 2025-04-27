@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Gms.Extensions;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -18,7 +19,7 @@ using Java.Util;
 namespace AppOrelProject.Activities
 {
     [Activity(Label = "AddApointmentActivity")]
-    public class AddApointmentActivity : Activity
+    public class AddApointmentActivity : Activity, IOnCompleteListener, Firebase.Firestore.IEventListener  
     {
         Appointment appointment=null;
         string id;
@@ -26,6 +27,8 @@ namespace AppOrelProject.Activities
         EditText etAppPhoneNumber;
         EditText etAppUserName;
         Button btnAddApointment;
+        List<Appointment> lstApp;
+        bool exist;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -51,7 +54,64 @@ namespace AppOrelProject.Activities
 
         private void BtnAddApointment_Click(object sender, EventArgs e)
         {
-            SaveDocument();
+
+           GetList();
+           
+        }
+        private List<Appointment> GetDocuments(QuerySnapshot result)
+        {
+            lstApp = new List<Appointment>();
+            foreach (DocumentSnapshot item in result.Documents)
+            {
+                Appointment app = new Appointment()
+                {
+                    Id = item.Id,
+                    BarberId = item.Get(General.BARBERID).ToString(),
+                    Day = DateTime.Parse(item.Get(General.DAY).ToString()),
+                    Hour = double.Parse(item.Get(General.HOUR).ToString())
+
+                };
+
+                if (app.BarberId == appointment.BarberId && app.Day.ToString()==appointment.Day.ToString() && app.Hour==appointment.Hour)
+                {
+                    lstApp.Add(app);
+                }
+
+            }
+          
+            return lstApp;
+
+        }
+        public void OnComplete(Android.Gms.Tasks.Task task)
+        {
+            if (task.IsSuccessful)
+            {
+                lstApp = GetDocuments((QuerySnapshot)task.Result);
+                if (lstApp.Count != 0)
+                {
+                    Toast.MakeText(this, "Appointment already exist", ToastLength.Short).Show();
+
+                }
+                else
+                {
+                    SaveDocument();
+                }
+            }
+        }
+        private async void GetList()
+        {
+            Toast.MakeText(this, "GettingList", ToastLength.Short).Show();
+            await fbd.GetCollection(General.FS_COLLECTIONAPP).AddOnCompleteListener(this);
+        }
+        public bool IsExistAppointment()
+        {
+            GetList();
+            if (exist)
+            {
+                Toast.MakeText(this, "Appointment already exist", ToastLength.Short).Show();
+                return true;
+            }
+            return false;   
         }
 
         private void InitObject()
@@ -99,7 +159,7 @@ namespace AppOrelProject.Activities
             if (await SetAppointment( etAppUserName.Text, etAppPhoneNumber.Text))
 
             {
-                Toast.MakeText(this, "Register successfully ", ToastLength.Short).Show();
+                Toast.MakeText(this, "Add Appointment successfully ", ToastLength.Short).Show();
                 etAppPhoneNumber.Text = "";
                 etAppUserName.Text = "";
                 Intent intent = new Intent(this, typeof(MainActivity));
@@ -110,7 +170,7 @@ namespace AppOrelProject.Activities
             }
             else
             {
-                Toast.MakeText(this, "Register Failed", ToastLength.Short).Show();
+                Toast.MakeText(this, "Add Appointment Failed", ToastLength.Short).Show();
             }
 
         }
@@ -138,6 +198,13 @@ namespace AppOrelProject.Activities
             return true;
 
 
+        }
+
+       
+
+        public void OnEvent(Java.Lang.Object obj, FirebaseFirestoreException error)
+        {
+            Console.WriteLine(  );
         }
     }
 }

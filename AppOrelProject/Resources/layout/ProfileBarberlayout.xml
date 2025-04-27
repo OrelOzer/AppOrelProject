@@ -18,19 +18,7 @@
         android:textColor="#EEEEEE"
         android:gravity="center"
         android:textFontWeight="1500"/>
-    <EditText
-        android:layout_width="800px"
-        android:layout_height="175px"
-        android:id="@+id/etProfileFullName"
-        android:textSize="70px"
-        android:background="@android:color/white"
-         android:textColor="@android:color/holo_blue_bright"
-        android:hint="Full Name"
-        android:paddingLeft="50px"
-        android:textFontWeight="1000"
-        android:layout_marginTop="10px"
-        android:textColorHint="#EEEEEE"
-        />
+   
     <EditText
         android:layout_width="800px"
         android:layout_height="175px"
@@ -44,33 +32,8 @@
         android:layout_marginTop="20px"
         android:textColorHint="#EEEEEE"
         />
-    <EditText
-        android:layout_width="800px"
-        android:layout_height="175px"
-        android:id="@+id/etProfileEmail"
-        android:textSize="70px"
-          android:background="@android:color/white"
-         android:textColor="@android:color/holo_blue_bright"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="50px"
-        android:textFontWeight="1000"
-        android:layout_marginTop="20px"
-        android:textColorHint="#EEEEEE"/>
-    <EditText
-        android:layout_marginTop="20px"
-        android:layout_width="800px"
-        android:layout_height="175px"
-        android:id="@+id/etProfilePassWord"
-        android:textSize="70px"
-          android:background="@android:color/white"
-          android:textColor="@android:color/holo_blue_bright"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:paddingLeft="50px"
-        android:textFontWeight="1000"
-        android:textColorHint="#EEEEEE"
-        />
+   
+   
     <EditText
         android:layout_marginTop="20px"
         android:layout_width="800px"
@@ -91,11 +54,11 @@
         android:layout_height="150px"
         android:background="#00ADB5"
         android:layout_marginTop="50px"
-        android:text="Register"
+        android:text="appointments"
         android:shadowColor="@android:color/black"
         android:textSize="64px"
         android:textFontWeight="1500"
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btnProfileGetApp"
         android:textColor="#222831"/>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="600px"

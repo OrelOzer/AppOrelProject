@@ -61,7 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\AddApointmentActivity.cs" />
+    <Compile Include="Activities\AdminActivity.cs" />
+    <Compile Include="Activities\AppClientActivity.cs" />
     <Compile Include="Activities\BarberOptionActivity.cs" />
+    <Compile Include="Activities\ClientActivityMenu.cs" />
+    <Compile Include="Activities\ClientListActivity.cs" />
     <Compile Include="Activities\DeleteApointmentActivity.cs" />
     <Compile Include="Activities\ListBarberActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Activities\ProfileBarberActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\UpdateOptionActivity.cs" />
+    <Compile Include="Activities\XmlActivity.cs" />
     <Compile Include="Helpers\AppAdapter.cs" />
     <Compile Include="Helpers\BarberAdapter.cs" />
     <Compile Include="Helpers\CheckClass.cs" />
@@ -113,7 +118,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\pic1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.5" />
@@ -165,6 +170,25 @@
     <AndroidResource Include="Resources\layout\AppRowlayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ClientMenulayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AdminMenulayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\layout1.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\barber1.jpg" />
+    <AndroidResource Include="Resources\drawable\barber2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

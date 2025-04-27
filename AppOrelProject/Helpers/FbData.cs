@@ -25,7 +25,7 @@ namespace AppOrelProject.Helpers
         public FbData()
         {
             app = FirebaseApp.InitializeApp(Application.Context);
-            if(app is null)
+            if (app is null)
             {
                 FirebaseOptions options = GetMyOptions();
                 app = FirebaseApp.InitializeApp(Application.Context, options);
@@ -39,9 +39,9 @@ namespace AppOrelProject.Helpers
                 .SetApplicationId("apporelproject")
                 .SetApiKey("AIzaSyCugo_fnpLa31w-GY60X2ekMyE6XOk_9Ew")
                 .SetStorageBucket("apporelproject.firebasestorage.app").Build();
-                
+
         }
-        public async Task CreateUser(string email, string password) 
+        public async Task CreateUser(string email, string password)
         {
             await auth.CreateUserWithEmailAndPassword(email, password);
         }
@@ -49,7 +49,7 @@ namespace AppOrelProject.Helpers
         {
             await auth.SignInWithEmailAndPassword(email, password);
         }
-      
+
         public string GetNewDocumentId(string cName)
         {
             DocumentReference dr = firestore.Collection(cName).Document();
@@ -69,6 +69,11 @@ namespace AppOrelProject.Helpers
             return firestore.Collection(cName).Document(id).Get();
 
         }
+
+        public Android.Gms.Tasks.Task DeleteFsDocument(string cName, string id)//asyncron
+        {
+            return firestore.Collection(cName).Document(id).Delete();
         }
 
+    }
 }

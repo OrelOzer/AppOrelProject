@@ -12,23 +12,25 @@ using Android.Widget;
 
 namespace AppOrelProject.Helpers
 {
-    internal class CheckClass
+    public class CheckClass
     {
-        private bool ChackInputData(string name,string password,string mail,string phone)
+        public static bool ChackInputData(string name,string phone)
         {
             bool allOk = true;
             
-            allOk = NameCheck(name) && MailChack(mail) && PassCheck(password) && PhoneCheck(phone);
+            allOk = NameCheck(name) &&  PhoneCheck(phone);
             return allOk;
 
         }
 
-        private bool PhoneCheck(string phone)
+        private static bool PhoneCheck(string phone)
         {
+            if(CheckingNumbers(phone)==true &&phone.Length>=10)
             return true;
+            return false;
         }
 
-        private bool PassCheck(string password)
+        private static bool PassCheck(string password)
         {
             bool ok = true;
             if (password.Length < 6 || password.Length > 16)
@@ -42,7 +44,7 @@ namespace AppOrelProject.Helpers
             return ok;
         }
 
-        private bool CheckingCapitalLeters(string password)
+        private static bool CheckingCapitalLeters(string password)
         {
             for (int i = 0; i < password.Length; i++)
             {
@@ -56,7 +58,7 @@ namespace AppOrelProject.Helpers
             return false;
         }
 
-        private bool MailChack(string mail)
+        private static bool MailChack(string mail)
         {
             int placeShtru = mail.IndexOf('@');
             if (placeShtru <= 0)
@@ -68,17 +70,16 @@ namespace AppOrelProject.Helpers
             return true;
         }
 
-        private bool NameCheck(string name)
+        private static bool NameCheck(string name)
         {
-            bool ok = true;
+           
             if (name.Length <= 1)
-                ok = false;
-            if (CheckingNumbers(name) != true)
-                ok = false;
-            return ok;
+               return false ;
+           
+            return true;
         }
 
-        private bool CheckingNumbers(string name)
+        private static bool CheckingNumbers(string name)
         {
             char[] charArr = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             for (int i = 0; i < charArr.Length; i++)

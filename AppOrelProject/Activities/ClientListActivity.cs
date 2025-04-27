@@ -14,12 +14,11 @@ using Android.Widget;
 using AppOrelProject.Helpers;
 using AppOrelProject.Models;
 using Firebase.Firestore;
-using Google.Firestore.V1;
 
 namespace AppOrelProject.Activities
 {
-    [Activity(Label = "ListBarberActivity")]
-    public class ListBarberActivity : Activity,IOnCompleteListener,IEventListener
+    [Activity(Label = "ClientListActivity")]
+    public class ClientListActivity : Activity,IOnCompleteListener,IEventListener
     {
         ListView listUserLv;
         List<User> lstbarber;
@@ -39,28 +38,28 @@ namespace AppOrelProject.Activities
 
         private async void GetList()
         {
-          Toast.MakeText(this,"GettingList",ToastLength.Short).Show();
+            Toast.MakeText(this, "GettingList", ToastLength.Short).Show();
             await fbd.GetCollection(General.FS_COLLECTION).AddOnCompleteListener(this);
         }
 
         private void InitViews()
         {
-            listUserLv=FindViewById<ListView>(Resource.Id.ListUserLv);
+            listUserLv = FindViewById<ListView>(Resource.Id.ListUserLv);
             listUserLv.ItemClick += ListUserLv_ItemClick;
         }
 
         private void ListUserLv_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            User barber= lstbarber[e.Position];
-            Intent intent = new Intent(this,typeof(AddApointmentActivity));
-            intent.PutExtra("Id",barber.Id);
-            StartActivity(intent);  
+            User barber = lstbarber[e.Position];
+            Intent intent = new Intent(this, typeof(AddApointmentActivity));
+            intent.PutExtra("Id", barber.Id);
+            StartActivity(intent);
         }
 
         private void InitObject()
         {
             fbd = new FbData();
-            fbd.AddCollectionSnapShotListener(this,General.FS_COLLECTION);
+            fbd.AddCollectionSnapShotListener(this, General.FS_COLLECTION);
         }
 
         public void OnComplete(Task task)
@@ -70,41 +69,40 @@ namespace AppOrelProject.Activities
                 lstbarber = GetDocuments((QuerySnapshot)task.Result);
                 if (lstbarber.Count != 0)
                 {
-                    Toast.MakeText(this,"Ok",ToastLength.Short) .Show();
+                    Toast.MakeText(this, "Ok", ToastLength.Short).Show();
 
                 }
                 else
                 {
-                    Toast.MakeText(this,"Empty",ToastLength.Short) .Show();
+                    Toast.MakeText(this, "Empty", ToastLength.Short).Show();
                 }
             }
         }
 
         private List<User> GetDocuments(QuerySnapshot result)
         {
-            lstbarber= new List<User>();
-            foreach(DocumentSnapshot item in result.Documents)
+            lstbarber = new List<User>();
+            foreach (DocumentSnapshot item in result.Documents)
             {
                 User user = new User()
                 {
                     Id = item.Id,
-                    Fullname=item.Get(General.KEY_FULLNAME).ToString(),
-                    Email= item.Get(General.KEY_EMAIL).ToString(),
-                    Phonenumber= item.Get(General.KEY_PHONENUMBER).ToString(),
+                    Fullname = item.Get(General.KEY_FULLNAME).ToString(),
+                    Email = item.Get(General.KEY_EMAIL).ToString(),
+                    Phonenumber = item.Get(General.KEY_PHONENUMBER).ToString(),
                     IsBarber = bool.Parse(item.Get(General.KEY_ISBARBER).ToString()),
 
                 };
-                if (user.IsBarber==true)
+                if (user.IsBarber == false)
                 {
                     lstbarber.Add(user);
                 }
-               
-              
+
             }
-            ba=new BarberAdapter(this,lstbarber,true);
+            ba = new BarberAdapter(this, lstbarber,false);
             listUserLv.Adapter = ba;
             return lstbarber;
-            
+
         }
 
         public void OnEvent(Java.Lang.Object obj, FirebaseFirestoreException error)

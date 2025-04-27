@@ -20,6 +20,7 @@ namespace AppOrelProject.Models
         public string Email { get; set; }
         public string Password {  get; set; }   
         public string Phonenumber {  get; set; }
+        public bool IsBarber {  get; set; }   
 
 
         public User()
@@ -29,6 +30,7 @@ namespace AppOrelProject.Models
             Fullname = string.Empty;
             Email = string.Empty;
             Phonenumber = string.Empty;
+            IsBarber = false;
         }
 
         public User(string userName, string id, string fullname, string email, string phonenumber)
@@ -38,6 +40,7 @@ namespace AppOrelProject.Models
             Fullname = fullname;
             Email = email;
             Phonenumber = phonenumber;
+            IsBarber=false;
         }
 
         public User(string id, string userName, string phonenumber)
@@ -45,6 +48,16 @@ namespace AppOrelProject.Models
             UserName = userName;
             Id = id;
             Phonenumber = phonenumber;
+            IsBarber=false; 
+        }
+
+        public User(string id, string userName, bool barber, string phonenumber)
+        {
+            UserName = userName;
+            Id = id;
+            Phonenumber=phonenumber;    
+          
+            IsBarber = barber;
         }
     }
 }

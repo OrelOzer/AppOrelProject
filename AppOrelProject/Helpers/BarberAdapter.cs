@@ -19,16 +19,19 @@ namespace AppOrelProject.Helpers
 
         Context context;
         private List<User> lstUsers;
+        bool isBar=false;   
 
-        public BarberAdapter(Context context)
+
+        public BarberAdapter(Context context, bool isBar)
         {
             this.context = context;
-           
+            this.isBar = isBar;
         }
-        public BarberAdapter(Context context, List<User> lstUsers) 
+        public BarberAdapter(Context context, List<User> lstUsers,bool isBar) 
         {
             this.lstUsers = lstUsers;
             this.context = context;
+            this.isBar = isBar;
         }
 
         public override Java.Lang.Object GetItem(int position)
@@ -44,7 +47,14 @@ namespace AppOrelProject.Helpers
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             LayoutInflater layoutInflater;
-            layoutInflater = ((ListBarberActivity)context).LayoutInflater;
+            if (isBar == true)
+            {
+                layoutInflater = ((ListBarberActivity)context).LayoutInflater;
+            }
+            else
+            {
+                layoutInflater = ((ClientListActivity)context).LayoutInflater;
+            }
             View view = layoutInflater.Inflate(Resource.Layout.ListBarberRowlayout, parent, false);
             TextView UserListRowName = view.FindViewById<TextView>(Resource.Id.UserListRowNameTextView);
             TextView UserListRowPhoneNumber = view.FindViewById<TextView>(Resource.Id.UserListRowPhoneNumberTextView);

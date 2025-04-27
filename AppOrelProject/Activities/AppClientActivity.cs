@@ -17,22 +17,22 @@ using Firebase.Firestore;
 
 namespace AppOrelProject.Activities
 {
-    [Activity(Label = "DeleteApointmentActivity")]
-    public class DeleteApointmentActivity : Activity,IOnCompleteListener,IEventListener
+    [Activity(Label = "AppClientActivity")]
+    public class AppClientActivity : Activity,IOnCompleteListener,IEventListener
     {
-
         ListView listApplv;
         List<Appointment> lstApp;
         AppAdapter apa;
         FbData fbd;
         string uid;
         string result;
+        string phone;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.DeleteAppointmentlayout);
-            uid = Intent.GetStringExtra("uid");
+           phone= Intent.GetStringExtra("phone");
             InitObject();
             InitViews();
             GetList();
@@ -53,9 +53,9 @@ namespace AppOrelProject.Activities
         private async void ListAppLv_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             Appointment app = lstApp[e.Position];
-            if(await DeleteAppAsync(app.Id))
+            if (await DeleteAppAsync(app.Id))
             {
-                Toast.MakeText(this,"Delete successfully",ToastLength.Short).Show();
+                Toast.MakeText(this, "Delete successfully", ToastLength.Short).Show();
             }
             else
             {
@@ -69,10 +69,10 @@ namespace AppOrelProject.Activities
             {
                 await fbd.DeleteFsDocument(General.FS_COLLECTIONAPP, id);
             }
-            catch(System.Exception ex) 
+            catch (System.Exception ex)
             {
-                string s=ex.Message;
-                return false;   
+                string s = ex.Message;
+                return false;
             }
             return true;
         }
@@ -110,13 +110,16 @@ namespace AppOrelProject.Activities
                     Id = item.Id,
                     BarberId = item.Get(General.BARBERID).ToString(),
                     Day = DateTime.Parse(item.Get(General.DAY).ToString()),
-                    Hour = double.Parse(item.Get(General.HOUR).ToString())
+                    Hour = double.Parse(item.Get(General.HOUR).ToString()),
+                    Phonenumber=item.Get(General.KEY_PHONENUMBER).ToString()
 
                 };
-                if (app.BarberId == uid)
+                if (app.Phonenumber==phone)
                 {
                     lstApp.Add(app);
+
                 }
+               
 
             }
             apa = new AppAdapter(this, lstApp);

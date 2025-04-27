@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+ 
+    android:gravity="center">
+
+   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+   <ImageView
+    android:layout_width="250dp"
+    android:orientation="vertical"
+    android:layout_height="250dp"
+    android:padding="20dp"
+ android:background="@drawable/barber2"
+    android:gravity="center">
+        </ImageView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <!-- TextView ממורכז -->
+  
+
+    <!-- כפתור Login מעוגל עם גבול שחור -->
+    <Button
+        android:text="Login"
+      
+        android:id="@+id/btnLogin"
+        android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+       <!-- android:background="@drawable/button_border"/-->
+       
+
+    <!-- כפתור Register מעוגל עם גבול שחור -->
+    <Button
+        android:text="Register"
+       
+        android:id="@+id/btnRegister"
+        android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+          <!-- android:background="@drawable/button_border"/-->
+      
+
+    <!-- כפתור List מעוגל עם גבול שחור -->
+    <Button
+        android:text="List"
+      
+        android:id="@+id/BtnList"
+        android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        <!-- android:background="@drawable/button_border"/-->
+        
+</LinearLayout>
+
