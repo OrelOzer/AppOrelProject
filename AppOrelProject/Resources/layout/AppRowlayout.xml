@@ -17,20 +17,26 @@
         android:id="@+id/AppDateTextView"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+       
         android:text="PhoneNumber "
-        android:textSize="35px"
-         android:textColor="@android:color/holo_blue_bright"
-        android:padding="30px"
+       android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center"
         android:id="@+id/AppHourTextView"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+       
         android:text="PhoneNumber "
-        android:textSize="35px"
-         android:textColor="@android:color/holo_blue_bright"
-        android:padding="30px"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center"
+       
+      
         android:id="@+id/AppBarberIdTextView"/>
 
    

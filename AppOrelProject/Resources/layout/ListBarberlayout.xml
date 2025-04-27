@@ -4,26 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
      <TextView
+         android:textColor="@android:color/black"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
         android:layout_width="match_parent"
-        android:layout_height="100px"
-        android:text="Barber List"
-        android:textSize="80px"
-        android:textColor="@android:color/holo_green_dark"
-        android:gravity="center"
-        android:textFontWeight="1500"/>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/ListUserLv"
-        android:textSize="50px"
-         android:background="@android:color/white"
-        android:textColor="@android:color/holo_green_dark"
-       
-        android:paddingLeft="5px"
-        
-        android:layout_marginTop="5px"
+        android:layout_height="wrap_content"
       
         />
+       
+    <ListView
+       
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ListUserLv" />
     
 
 </LinearLayout>

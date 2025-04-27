@@ -4,18 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
      <Button
-        android:text="Profile"
-        android:layout_width="wrap_content"
+        android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnClientProfile" />
     <Button
-        android:text="MyAppointment"
-        android:layout_width="wrap_content"
+        android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnClientApp" />
      <Button
-        android:text="BarberList"
-        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnBarberList" />
 
