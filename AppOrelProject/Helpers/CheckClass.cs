@@ -23,9 +23,9 @@ namespace AppOrelProject.Helpers
 
         }
 
-        private static bool PhoneCheck(string phone)
+       public static bool PhoneCheck(string phone)
         {
-            if(CheckingNumbers(phone)==true &&phone.Length>=10)
+            if(CheckingNumbers2(phone)==true &&phone.Length==10)
             return true;
             return false;
         }
@@ -70,7 +70,7 @@ namespace AppOrelProject.Helpers
             return true;
         }
 
-        private static bool NameCheck(string name)
+        public static bool NameCheck(string name)
         {
            
             if (name.Length <= 1)
@@ -89,5 +89,18 @@ namespace AppOrelProject.Helpers
             }
             return true;
         }
+
+
+        private static bool CheckingNumbers2(string name)
+        {
+           
+            for (int i = 0; i < name.Length; i++)
+            {
+                if (name[i] > '9' || name[i] < '0')
+                    return false;
+            }
+            return true;
+        }
     }
+
 }

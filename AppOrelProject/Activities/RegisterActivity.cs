@@ -52,7 +52,9 @@ namespace AppOrelProject.Activities
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            bool check = CheckClass.ChackInputData(etRegFullName.Text, etRegPhoneNumber.Text);
+          //  bool check = CheckClass.ChackInputData(etRegFullName.Text, etRegPhoneNumber.Text);
+          //  bool check = CheckClass.NameCheck(etRegFullName.Text);
+            bool check = CheckClass.PhoneCheck(etRegPhoneNumber.Text);
             if (check)
             {
                 SaveDocument();
